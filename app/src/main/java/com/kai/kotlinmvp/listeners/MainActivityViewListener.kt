@@ -6,5 +6,6 @@ interface MainActivityViewListener {
     fun showProgress()
     fun hideProgress()
     fun setAuthorData( authorList: MutableList<Author> )
-    fun showError( error: String )
+    fun showError()
+    fun onItemClick(author: Author)
 }

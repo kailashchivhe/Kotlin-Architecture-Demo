@@ -1,18 +1,17 @@
 package com.kai.kotlinmvp.model
 
 import com.kai.kotlinmvp.helper.NetworkHelper
-import com.kai.kotlinmvp.listeners.AuthorDataListener
 import org.json.JSONArray
 
 class AuthorSDK
 {
-    fun getData( authorDataListener: AuthorDataListener )
+    fun getAuthorList(): MutableList<Author>
     {
         val list = mutableListOf<Author>()
         val jsonString = NetworkHelper.getJsonStringData( "https://picsum.photos/list" )
         if( jsonString.startsWith("Error") )
         {
-            authorDataListener.onResultFail( jsonString )
+            return list
         }
         val jsonArray = JSONArray( jsonString )
         for( i in 0 until jsonArray.length() )
@@ -23,6 +22,6 @@ class AuthorSDK
             val author = Author(authorId, authorName)
             list.add( author )
         }
-        authorDataListener.onResultSuccess( list )
+        return list
     }
 }

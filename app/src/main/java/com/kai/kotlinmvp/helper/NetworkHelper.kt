@@ -1,5 +1,7 @@
 package com.kai.kotlinmvp.helper
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.IOException
@@ -76,6 +78,13 @@ class NetworkHelper
                 e.printStackTrace()
                 return "Error CONNECT " + e.message
             }
+        }
+
+        fun getBitMap( urlString: String ): Bitmap
+        {
+            val url = URL( urlString )
+            val bitmap = BitmapFactory.decodeStream( url.openConnection().getInputStream() )
+            return bitmap
         }
     }
 }
