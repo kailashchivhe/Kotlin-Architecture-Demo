@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(),MainActivityViewListener {
         setContentView(R.layout.activity_main)
         progressBar.visibility = View.GONE
         mRecyclerView = findViewById( R.id.recyclerView )
-        when( getResources().getConfiguration().orientation ){
+        when( resources.configuration.orientation ){
             Configuration.ORIENTATION_LANDSCAPE->{
                 mRecyclerView.layoutManager =
                     GridLayoutManager(applicationContext, 5, LinearLayoutManager.VERTICAL, false)
