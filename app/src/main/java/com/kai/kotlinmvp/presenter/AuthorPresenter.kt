@@ -1,7 +1,6 @@
 package com.kai.kotlinmvp.presenter
 
-import com.kai.kotlinmvp.listeners.AuthorDataListener
-import com.kai.kotlinmvp.listeners.MainActivityViewListener
+import com.kai.kotlinmvp.listeners.MainActivityListeners
 import com.kai.kotlinmvp.model.Author
 import com.kai.kotlinmvp.model.AuthorSDK
 import kotlinx.coroutines.CoroutineScope
@@ -10,7 +9,7 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class AuthorPresenter( private var mainActivityViewListener: MainActivityViewListener? ) : AuthorDataListener
+class AuthorPresenter( private var mainActivityViewListener: MainActivityListeners.MainActivityViewListeners? ) : MainActivityListeners.AuthorDataListener
 {
     fun getData()
     {

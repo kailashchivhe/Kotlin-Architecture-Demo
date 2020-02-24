@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kai.kotlinmvp.R
-import com.kai.kotlinmvp.listeners.MainActivityViewListener
+import com.kai.kotlinmvp.listeners.MainActivityListeners
 import com.kai.kotlinmvp.model.Author
 import com.kai.kotlinmvp.presenter.AuthorPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),MainActivityViewListener {
+class MainActivity : AppCompatActivity(),MainActivityListeners.MainActivityViewListeners {
     private val mAuthorPresenter = AuthorPresenter( this )
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAuthorViewModel: AuthorViewModel
